@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .creative-button {
+            background: linear-gradient(145deg, #0e0e0e, #2d2d2d);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .creative-button:hover {
+            background: linear-gradient(145deg, #2d2d2d, #0e0e0e);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .creative-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.3s ease;
+        }
+
+        .creative-button:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <button class="creative-button" id="btn">Clickme</button>
+    
+    </div>
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            location.assign("./loader.html")
+        })
+    </script>
+</body>
+</html>

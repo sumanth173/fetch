@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let main_div=document.createElement("div")
+            document.body.append(main_div)
+            main_div.style.display ="flex";
+            main_div.style.flexWrap="wrap";
+            main_div.style.justifyContent="center"
+            main_div.style.gap="10px"
+      let x = fetch("https://679ba7db33d316846324a87d.mockapi.io/v5/movies");
+      console.log(x);
+      x.then((x) => x.json()).
+      then((x) => {
+        let res = x;
+        res.map((x)=>{
+            
+
+           let image= document.createElement("img")
+           image.src=x.poster;
+           image.style.height="250px"
+           image.style.width="250px"
+
+           let title=document.createElement("h2")
+           title.innerHTML=x.title
+           
+            let genre=document.createElement("h3")
+
+            genre.innerHTML=x.genre
+            genre.style.backgroundColor="white"
+            let card=document.createElement("div")
+
+            card.append(image, title, genre);
+
+            card.style.border="3px solid grey"
+            card.style.width="250px"
+            card.style.padding="10px"
+            card.style.backgroundColor="lightyellow"
+
+            
+            main_div.append(card)
+
+            // card.append(image, title, genre);
+            // document.body.append(card)
+        
+
+
+        })
+      });
+    </script>
+  </body>
+</html>
